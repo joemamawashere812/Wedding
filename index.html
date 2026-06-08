@@ -1,14 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My First Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Save the Date</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello world</h1>
-  <p>I coded this website on my Mac.</p>
+  <header class="hero">
+    <nav class="topbar" aria-label="Wedding site navigation">
+      <span class="brand">Save the Date</span>
+      <div class="nav-links">
+        <a href="#rsvp">RSVP</a>
+        <a href="#guest-list">Guest List</a>
+      </div>
+    </nav>
 
-  <button onclick="sayHello()">Click me</button>
+    <section class="hero-content">
+      <p class="eyebrow">We are getting married</p>
+      <h1>Our Wedding</h1>
+      <p class="date-line">Date and location coming soon</p>
+      <p class="hero-copy">A simple place to collect RSVPs and keep track of everyone we want to invite.</p>
+      <a class="primary-link" href="#rsvp">RSVP now</a>
+    </section>
+  </header>
+
+  <main>
+    <section class="section stats-section" aria-label="Wedding response totals">
+      <article class="stat-card">
+        <span id="totalGuests">0</span>
+        <p>Total guests</p>
+      </article>
+      <article class="stat-card">
+        <span id="yesCount">0</span>
+        <p>Attending</p>
+      </article>
+      <article class="stat-card">
+        <span id="noCount">0</span>
+        <p>Not attending</p>
+      </article>
+      <article class="stat-card">
+        <span id="pendingCount">0</span>
+        <p>Waiting</p>
+      </article>
+    </section>
+
+    <section class="section two-column">
+      <div class="panel" id="rsvp">
+        <div class="section-heading">
+          <p class="eyebrow">Guest response</p>
+          <h2>RSVP</h2>
+        </div>
+
+        <form id="rsvpForm" class="form">
+          <label for="rsvpName">Name</label>
+          <input id="rsvpName" name="rsvpName" type="text" placeholder="First and last name" required>
+
+          <label for="rsvpStatus">Will you be there?</label>
+          <select id="rsvpStatus" name="rsvpStatus" required>
+            <option value="">Choose one</option>
+            <option value="yes">Yes, celebrating with you</option>
+            <option value="no">Sadly cannot make it</option>
+          </select>
+
+          <label for="partySize">Party size</label>
+          <input id="partySize" name="partySize" type="number" min="1" value="1" required>
+
+          <label for="message">Note</label>
+          <textarea id="message" name="message" rows="3" placeholder="Meal needs, song requests, or a sweet note"></textarea>
+
+          <button type="submit">Send RSVP</button>
+        </form>
+
+        <p id="rsvpMessage" class="status-message" role="status"></p>
+      </div>
+
+      <div class="panel">
+        <div class="section-heading">
+          <p class="eyebrow">Planning</p>
+          <h2>Add someone to invite</h2>
+        </div>
+
+        <form id="guestForm" class="form">
+          <label for="guestName">Guest name</label>
+          <input id="guestName" name="guestName" type="text" placeholder="Alex Morgan" required>
+
+          <label for="guestEmail">Email</label>
+          <input id="guestEmail" name="guestEmail" type="email" placeholder="alex@example.com">
+
+          <label for="inviteGroup">Group</label>
+          <input id="inviteGroup" name="inviteGroup" type="text" placeholder="Family, friends, work">
+
+          <label for="inviteStatus">Invite status</label>
+          <select id="inviteStatus" name="inviteStatus">
+            <option value="to invite">To invite</option>
+            <option value="save the date sent">Save the date sent</option>
+            <option value="invitation sent">Invitation sent</option>
+          </select>
+
+          <button type="submit">Add guest</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section guest-list-section" id="guest-list">
+      <div class="section-heading">
+        <p class="eyebrow">Invite tracker</p>
+        <h2>Guest list</h2>
+      </div>
+
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search guests">
+        <button id="exportButton" type="button">Export CSV</button>
+        <button id="resetSampleButton" type="button">Load sample guests</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Group</th>
+              <th>Invite</th>
+              <th>RSVP</th>
+              <th>Party</th>
+              <th>Note</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="guestTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
