@@ -12,7 +12,7 @@
       <span class="brand">Save the Date</span>
       <div class="nav-links">
         <a href="#rsvp">RSVP</a>
-        <a href="#guest-list">Guest List</a>
+        <a href="#details">Details</a>
       </div>
     </nav>
 
@@ -20,118 +20,110 @@
       <p class="eyebrow">We are getting married</p>
       <h1>Our Wedding</h1>
       <p class="date-line">Date and location coming soon</p>
-      <p class="hero-copy">A simple place to collect RSVPs and keep track of everyone we want to invite.</p>
+      <p class="hero-copy">Share your contact details with us so we can send the formal invitation and wedding updates.</p>
       <a class="primary-link" href="#rsvp">RSVP now</a>
     </section>
   </header>
 
   <main>
-    <section class="section stats-section" aria-label="Wedding response totals">
-      <article class="stat-card">
-        <span id="totalGuests">0</span>
-        <p>Total guests</p>
-      </article>
-      <article class="stat-card">
-        <span id="yesCount">0</span>
-        <p>Attending</p>
-      </article>
-      <article class="stat-card">
-        <span id="noCount">0</span>
-        <p>Not attending</p>
-      </article>
-      <article class="stat-card">
-        <span id="pendingCount">0</span>
-        <p>Waiting</p>
-      </article>
-    </section>
-
-    <section class="section two-column">
-      <div class="panel" id="rsvp">
+    <section class="section rsvp-layout" id="rsvp">
+      <div class="panel rsvp-panel">
         <div class="section-heading">
           <p class="eyebrow">Guest response</p>
-          <h2>RSVP</h2>
+          <h2>Send us your details</h2>
         </div>
 
         <form id="rsvpForm" class="form">
-          <label for="rsvpName">Name</label>
-          <input id="rsvpName" name="rsvpName" type="text" placeholder="First and last name" required>
+          <div class="form-grid">
+            <div>
+              <label for="firstName">First name</label>
+              <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
+            </div>
 
-          <label for="rsvpStatus">Will you be there?</label>
-          <select id="rsvpStatus" name="rsvpStatus" required>
-            <option value="">Choose one</option>
-            <option value="yes">Yes, celebrating with you</option>
-            <option value="no">Sadly cannot make it</option>
-          </select>
+            <div>
+              <label for="lastName">Last name</label>
+              <input id="lastName" name="lastName" type="text" autocomplete="family-name" required>
+            </div>
+          </div>
 
-          <label for="partySize">Party size</label>
-          <input id="partySize" name="partySize" type="number" min="1" value="1" required>
+          <div class="form-grid">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div>
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+
+          <label for="address1">Home address</label>
+          <input id="address1" name="address1" type="text" autocomplete="address-line1" placeholder="Street address" required>
+
+          <label for="address2">Apartment, suite, or unit</label>
+          <input id="address2" name="address2" type="text" autocomplete="address-line2" placeholder="Optional">
+
+          <div class="address-grid">
+            <div>
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" autocomplete="address-level2" required>
+            </div>
+
+            <div>
+              <label for="state">State</label>
+              <input id="state" name="state" type="text" autocomplete="address-level1" required>
+            </div>
+
+            <div>
+              <label for="zip">ZIP code</label>
+              <input id="zip" name="zip" type="text" autocomplete="postal-code" required>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label for="rsvpStatus">Will you be there?</label>
+              <select id="rsvpStatus" name="rsvpStatus" required>
+                <option value="">Choose one</option>
+                <option value="yes">Yes, celebrating with you</option>
+                <option value="no">Sadly cannot make it</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="partySize">Party size</label>
+              <input id="partySize" name="partySize" type="number" min="1" value="1" required>
+            </div>
+          </div>
 
           <label for="message">Note</label>
-          <textarea id="message" name="message" rows="3" placeholder="Meal needs, song requests, or a sweet note"></textarea>
+          <textarea id="message" name="message" rows="3" placeholder="Anything we should know?"></textarea>
 
-          <button type="submit">Send RSVP</button>
+          <button id="submitButton" type="submit">Send RSVP</button>
         </form>
 
         <p id="rsvpMessage" class="status-message" role="status"></p>
       </div>
 
-      <div class="panel">
+      <aside class="details-panel" id="details">
         <div class="section-heading">
-          <p class="eyebrow">Planning</p>
-          <h2>Add someone to invite</h2>
+          <p class="eyebrow">Privacy</p>
+          <h2>Your information goes to our private list</h2>
         </div>
 
-        <form id="guestForm" class="form">
-          <label for="guestName">Guest name</label>
-          <input id="guestName" name="guestName" type="text" placeholder="Alex Morgan" required>
-
-          <label for="guestEmail">Email</label>
-          <input id="guestEmail" name="guestEmail" type="email" placeholder="alex@example.com">
-
-          <label for="inviteGroup">Group</label>
-          <input id="inviteGroup" name="inviteGroup" type="text" placeholder="Family, friends, work">
-
-          <label for="inviteStatus">Invite status</label>
-          <select id="inviteStatus" name="inviteStatus">
-            <option value="to invite">To invite</option>
-            <option value="save the date sent">Save the date sent</option>
-            <option value="invitation sent">Invitation sent</option>
-          </select>
-
-          <button type="submit">Add guest</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="section guest-list-section" id="guest-list">
-      <div class="section-heading">
-        <p class="eyebrow">Invite tracker</p>
-        <h2>Guest list</h2>
+        <p>After this is connected, submissions will go into a private Google Sheet that only the couple can access.</p>
+        <p>The public site will not show the guest table, phone numbers, emails, or addresses.</p>
       </div>
 
-      <div class="toolbar">
-        <input id="searchInput" type="search" placeholder="Search guests">
-        <button id="exportButton" type="button">Export CSV</button>
-        <button id="resetSampleButton" type="button">Load sample guests</button>
-      </div>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Group</th>
-              <th>Invite</th>
-              <th>RSVP</th>
-              <th>Party</th>
-              <th>Note</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="guestTableBody"></tbody>
-        </table>
-      </div>
+        <ul class="detail-list">
+          <li>First and last name</li>
+          <li>Email and phone number</li>
+          <li>Mailing address</li>
+          <li>RSVP answer and party size</li>
+        </ul>
+      </aside>
     </section>
   </main>
 
