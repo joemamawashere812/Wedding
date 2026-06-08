@@ -1,4 +1,4 @@
-const RSVP_ENDPOINT = "";
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzMcxjV-opABaeEQzhdE971wMQQIfONaT1CAxGD5EH6c_L8-oSl1RjLUyKwbgoaw5lgXQ/exec";
 
 const rsvpForm = document.querySelector("#rsvpForm");
 const rsvpMessage = document.querySelector("#rsvpMessage");
