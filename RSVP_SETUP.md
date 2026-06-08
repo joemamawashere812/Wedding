@@ -24,6 +24,14 @@ Choose:
 
 Click `Deploy`, approve access, and copy the Web App URL.
 
+If you change the Apps Script code later, click `Deploy` > `Manage deployments`, edit the web app, and choose `New version`. Google keeps serving the old deployed version until you do this.
+
+After deploying, open the Web App URL in your browser. It should say:
+
+```text
+Wedding RSVP endpoint is running.
+```
+
 ## 4. Connect the website
 
 Open `script.js` and replace:

@@ -1,5 +1,11 @@
 const SHEET_NAME = "RSVPs";
 
+function doGet() {
+  return ContentService
+    .createTextOutput("Wedding RSVP endpoint is running.")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
 function doPost(event) {
   const sheet = getSheet();
   const data = JSON.parse(event.postData.contents);
